@@ -36,9 +36,10 @@ Common actors: %s
 	def _get_movie_choice_from_user(self, prompt):
 		query  = raw_input(prompt)
 		results = self.imdb_client.search_by_title(query)
-		self._print_results(results)
+		results_with_actors = [result for result in results if 'actors' in result]
+		self._print_results(results_with_actors)
 		choice = raw_input('Which is the best match? ')
-		return results[int(choice)]
+		return results_with_actors[int(choice)]
 
 	def _print_results(self, results):
 		for i, result in enumerate(results):
