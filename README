@@ -1,0 +1,7 @@
+Query the IMDB API to find common actors between two movies.
+
+Requirements:
+requests
+
+Usage:
+python shared_actors.py
